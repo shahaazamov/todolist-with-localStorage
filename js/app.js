@@ -91,9 +91,9 @@ icon.addEventListener('click',()=>{
     document.querySelector('#modal').classList.add('hidden')
     document.querySelector('#overlay').classList.add('hidden')
 })
-document.addEventListener('keydown',(e)=>{
-    if(e.code = 'Escape'){
-        document.querySelector('#modal').classList.add('hidden')
-    document.querySelector('#overlay').classList.add('hidden')
-    }
-})
+// document.addEventListener('keydown',(e)=>{
+//     if(e.code = 'Escape'){
+//         document.querySelector('#modal').classList.add('hidden')
+//         document.querySelector('#overlay').classList.add('hidden')
+//     }
+// })
