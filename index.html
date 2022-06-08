@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD To Do List</title>
+    <!-- BOOTSTRAP CSS -->
+    <link rel="stylesheet" href="./bootsrap/bootstrap.min.css">
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- MAIN CSS -->
+    <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+    <header class="my-5 text-center">
+        <h1 class="display-2 text-primary">To Do List</h1>
+        <small >by 
+            <a href="https://www.github.com/shahaazamov" target="_blank">Shohjahon</a>
+        </small>
+    </header>
+    
+    
+    <main class="container">
+        <form id="formCreate">
+            <div class="mb-3">
+                <input class="form-control mb-3 "  type="text" placeholder="type your todos" autocomplete="off" id="input-create" >
+                <span class="text-danger" id="message">
+                
+                </span>
+            </div>
+            <button class="btn btn-outline-primary d-block ms-auto">add</button>
+        </form>
+        
+        <ul id="listGroupTodo" class="list-group mt-3">
+            <!-- <li class="list-group-item d-flex justify-content-between">Cras justo odio'
+
+                <div class="todo-icons">
+                    <img onclick="editTodo(0)" src="./images/edit.svg" alt=" edit image" width="25" height="25">
+                    <img onclick="deleteTodo(0)" src="./images/delete.svg" alt="delete images" width="25" height="25">
+                </div>
+            </li> -->
+        </ul>
+
+        <!-- modal -->
+        <div id="modal" class="modal-todo hidden">        
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-content-center" >
+                    <h5 >change this todo</h5>
+                    <img id="icon" src="./images/close.svg" alt="" width="25" height="25">
+                </div>
+
+                <div class="card-body">
+                    <form id="formEdit">
+                        <div class="mb-3">
+                            <input class="form-control mb-3 "  type="text" placeholder="type your todos" autocomplete="off" id="input-edit">
+                            <span class="text-danger" id="messageEdit">
+                                
+                            </span>
+                        </div>
+                        <button class="btn btn-outline-success d-block ms-auto">add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="overlay" id="overlay"></div>
+    
+
+    
+    
+    <!-- BOOTSRAP JS -->
+    <script src="./bootsrap/bootstrap.min.js"></script>
+    <!-- MAIN JS -->
+    <script src="./js/app.js"></script>
+</body>
+</html>

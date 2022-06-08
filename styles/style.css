@@ -1,0 +1,42 @@
+.container{
+    max-width: 600px;
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+.list-group-item{
+    transition: all 0.5s;
+}
+.list-group-item:hover{
+    background-color: rgba(204, 204, 204,0.8);
+}
+.todo-icons img{
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.todo-icons img:hover{
+    transform: scale(1.2);
+}
+.modal-todo{
+    position: fixed;
+    width: 100%;
+    max-width: 500px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+
+}
+.overlay{
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100vh;
+    background: rgba(204, 204, 204,0.4);
+    backdrop-filter: blur(3px);
+    z-index: 50;
+
+}
+.hidden{
+    display: none;
+}
