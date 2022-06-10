@@ -63,7 +63,7 @@ function deleteTodo(id){
 }
 //editTodo
 function editTodo(id){
-    changeTodoIndex = id
+    changeTodoIndex == id
     document.querySelector('#modal').classList.remove('hidden')
     overlay.classList.remove('hidden')
     
@@ -73,9 +73,9 @@ function editTodo(id){
 
 formEdit.addEventListener('submit',(e)=>{
     e.preventDefault()
-    const todoEdit = formEdit['input-edit'].value.trim()
-    if(todoEdit.length){
-        todos.push(changeTodoIndex,1,todoEdit)
+    const todoTextEdit = formEdit['input-edit'].value.trim()
+    if(todoTextEdit.length){
+        todos.splice(changeTodoIndex,1,todoTextEdit)
         setTodos()
         showTodos()
         formEdit['input-edit'].value = ''
