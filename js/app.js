@@ -4,13 +4,13 @@ const listGroupTodo = document.querySelector('#listGroupTodo')
 const showMessage =document.querySelector('#message')
 const messageEdit = document.querySelector('#messageEdit')
 const icon = document.querySelector('#icon')
-const overlay = document.querySelector('#overlay')
+// const overlay = document.querySelector('#overlay')
 
 
 let changeTodoIndex = 0
 const List = 'list'
 //local storage
-const todos = JSON.parse(localStorage.getItem(List)) ? JSON.parse(localStorage.getItem(List)) :[]
+let todos = JSON.parse(localStorage.getItem(List)) ? JSON.parse(localStorage.getItem(List)) :[]
 
 if(todos.length)showTodos()
 //setTodos
@@ -23,8 +23,9 @@ function showTodos(){
     listGroupTodo.innerHTML = ''
     todos.forEach((todo,i)=>{
         listGroupTodo.innerHTML += `
-        <li class="list-group-item d-flex justify-content-between">${todo}
+        <li obdbclick="setCompleted(${i})" class="list-group-item d-flex justify-content-between${todo.completed ==true ? '' : ''} ">${todo.text}
                 <div class="todo-icons">
+                <span class="opacity-50 me-2">${todo.time}</span>
                     <img onclick="editTodo(${i})" src="./images/edit.svg" alt=" edit image" width="25" height="25">
                     <img onclick="deleteTodo(${i})" src="./images/delete.svg" alt="delete images" width="25" height="25">
                 </div>
@@ -42,7 +43,7 @@ formCreate.addEventListener('submit',(e)=>{
     e.preventDefault()
     const todoText = formCreate['input-create'].value.trim()
     if(todoText.length){
-        todos.push(todoText)
+        todos.push({text: todoText,time:getData() , completed:false})
         setTodos()
         showTodos()
         formCreate['input-create'].value = ''
@@ -92,8 +93,39 @@ icon.addEventListener('click',()=>{
     document.querySelector('#overlay').classList.add('hidden')
 })
 // document.addEventListener('keydown',(e)=>{
+//     e.stopPropagation()
 //     if(e.code = 'Escape'){
 //         document.querySelector('#modal').classList.add('hidden')
 //         document.querySelector('#overlay').classList.add('hidden')
 //     }
 // })
+
+
+
+
+
+
+function getData(){
+    const now = new Date()
+    const day = now.getDate() < 10 ? '0' + now.getDate() : now.getDate()
+    return dateFns.format(now,`HH:mm,${day}.MM.YYYY`)
+}
+
+
+function setCompleted(id){
+    const mapTodo = todos.map((todo,i)=>{
+        if(id == i){
+            return {...todo, completed: todo.completed == true ? false : true}
+        }else{
+            return {...todo}
+        }
+    })
+    todos == mapTodo
+    setTodos()
+    showTodos()
+}
+
+
+
+
+
